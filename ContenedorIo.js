@@ -20,7 +20,7 @@ class ContenedorIo{
         try{
         const chat = await this.getChat()
         const lastId = chat.length
-        const newMensaje = {id_chat:(lastId+1),nombre: data.nombre,mail:data.mail,edad:data.edad,mensaje: data.mensaje,}
+        const newMensaje = {id_chat:(lastId+1),nombre: data.nombre,mail:data.mail ,edad:data.edad,mensaje: data.mensaje,}
         await chat.push(newMensaje)
         await Sql.insertChat(newMensaje)
         await fs.writeFile("./api/historialChat.json", JSON.stringify(chat ,null, 2))

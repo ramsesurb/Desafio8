@@ -13,7 +13,7 @@ class ClienteSqlChat {
             return await knex.schema.createTable(`chat`, table => {
                 table.increments("id_chat").primary();
                 table.string("nombre", 50).notNullable();
-                table.string("mail", 50).notNullable();
+                table.string("id", 50).notNullable();
                 table.string("edad", 500).notNullable();
                 table.string("mensaje", 500).notNullable();
                 
