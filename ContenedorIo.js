@@ -1,14 +1,12 @@
 const { promises: fs } = require('fs');
-const ClienteSqlChat = require("./model/sqlLite3")
-const Sql = new ClienteSqlChat
+//onst ClienteSqlChat = require("./model/sqlLite3")
+//const Sql = new ClienteSqlChat
 
 class ContenedorIo{
 
     async getChat(){
         try{
-            
-            const contentChat = await Sql.getChat()
-            console.table(contentChat)
+            const contentChat = JSON.parse(await fs.readFile(`./api/historialChat.json`,'utf-8'))
             return contentChat
         }catch(error){
             console.log(error)
@@ -20,9 +18,11 @@ class ContenedorIo{
         try{
         const chat = await this.getChat()
         const lastId = chat.length
-        const newMensaje = {id_chat:(lastId+1),nombre: data.nombre,mail:data.mail ,edad:data.edad,mensaje: data.mensaje,}
+        const newMensaje = {id_chat:(lastId+1),nombre: data.nombre,id:data.mail ,edad:data.edad,mensaje: data.mensaje}
+        const mensaje={mensaje: data.mensaje}
+        const fullMsg= {newMensaje}
         await chat.push(newMensaje)
-        await Sql.insertChat(newMensaje)
+        //await Sql.insertChat(newMensaje)
         await fs.writeFile("./api/historialChat.json", JSON.stringify(chat ,null, 2))
         return chat
 

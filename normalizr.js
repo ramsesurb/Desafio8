@@ -1,117 +1,97 @@
 const { normalize, schema, denormalize } = require("normalizr");
 const originalData = {
   id: "999",
-  posts: [
+  posts: 
+  [
     {
-      id: "1",
-      autor: 
-        {
-          id: "ramsesurb@gmail.com",
-          nombre: "Emiliano",
-          edad: "23",
-        },
-       mensaje: "008899"
+      "id_chat": 1,
+      "nombre": "Emiliano",
+      "id": "ramsesurb@gmail.com",
+      "edad": "23",
+      "mensaje": "008899"
     },
     {
-      id: "2",
-      autor: 
-      {
-          id: "ramsesurb@gmail.com",
-          nombre: "Emiliano",
-          edad: "23",
-    },
-      mensaje: "como estan todos?",
+      "id_chat": 2,
+      "nombre": "Emiliano",
+      "id": "ramsesurb@gmail.com",
+      "edad": "23",
+      "mensaje": "como estan todos?"
     },
     {
-      id: "3",
-      autor: 
-        {
-          id: "ramsesurb@gmail.com",
-          nombre: "Emiliano",
-          edad: "23",
-        }
-      ,
-       mensaje: "todo bien?"
+      "id_chat": 3,
+      "nombre": "Emiliano",
+      "id": "ramsesurb@gmail.com",
+      "edad": "23",
+      "mensaje": "todo bien?"
     },
     {
-      id: "4",
-      autor: 
-        {
-          id: "ramsesurb@gmail.com",
-          nombre: "Emiliano",
-          edad: "23",
-        }
-      ,
-       mensaje: "hola contesten"
+      "id_chat": 4,
+      "nombre": "Emiliano",
+      "id": "ramsesurb@gmail.com",
+      "edad": "23",
+      "mensaje": "hola contesten"
     },
     {
-      id: "5",
-      autor: 
-        {
-          id: "mamama@gmail.com",
-          nombre: "Ramses",
-          edad: "32",
-        }
-      ,
-       mensaje: "que rica la pile"
+      "id_chat": 5,
+      "nombre": "Emiliano",
+      "id": "ramsesurb@gmail.com",
+      "edad": "23",
+      "mensaje": "que rica la pile"
     },
     {
-      id: "6",
-      autor: 
-        {
-          id: "mamama@gmail.com",
-          nombre: "Ramses",
-          edad: "32",
-        }
-      ,
-      mensaje: "Expelliarmus",
+      "id_chat": 6,
+      "nombre": "Ramses",
+      "id": "mamama@gmail.com",
+      "edad": "32",
+      "mensaje": "Expelliarmus"
     },
     {
-      id: "7",
-      autor: 
-        {
-          id: "mamama@gmail.com",
-          nombre: "Ramses",
-          edad: "32",
-        }
-      ,
-      mensaje: "Desmaius",
+      "id_chat": 7,
+      "nombre": "Ramses",
+      "id": "mamama@gmail.com",
+      "edad": "32",
+      "mensaje": "Desmaius"
     },
     {
-      id: "8",
-      autor: 
-        {
-          id: "mamama@gmail.com",
-          nombre: "Ramses",
-          edad: "32",
-        }
-      ,
-     mensaje: "Expecto Patronum",
+      "id_chat": 8,
+      "nombre": "Ramses",
+      "id": "mamama@gmail.com",
+      "edad": "32",
+      "mensaje": "Expecto Patronum"
     },
     {
-      id: "9",
-      autor: 
-        {
-          id: "mamama@gmail.com",
-          nombre: "Ramses",
-          edad: "32",
-        }
-      ,
-      mensaje: "Avada Kedavra",
+      "id_chat": 9,
+      "nombre": "Ramses",
+      "id": "mamama@gmail.com",
+      "edad": "32",
+      "mensaje": "Expecto Patronum"
     },
-  ],
+    {
+      "id_chat": 10,
+      "nombre": "Ramses",
+      "id": "mamama@gmail.com",
+      "edad": "32",
+      "mensaje": "Avada Kedavra"
+    },
+    {
+      "id_chat": 11,
+      "nombre": "jordan",
+      "id": "ramsesurbss@gmail.com",
+      "edad": "33",
+      "mensaje": "wewewer"
+    }
+  ]
+  
 };
 
-const user = new schema.Entity("persona");
-const comment = new schema.Entity("mensaje", {
-  autor: user,
-});
-const post = new schema.Entity("post", {
-  autor: user,
-  mensaje: [comment],
+
+
+const autor = new schema.Entity("autor", {
+  
 });
 const mensajes = new schema.Entity("articles", {
-  posts: [post],
+  posts: [autor],
+  
 });
 
 const util = require("util");
